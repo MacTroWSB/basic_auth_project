@@ -4,6 +4,8 @@ var path = require('path');
 
 const app = express();
 
+//opisanie wymagan
+
 function authentication(req, res, next) {
 	var authheader = req.headers.authorization;
 	console.log(req.headers);
@@ -33,11 +35,15 @@ function authentication(req, res, next) {
 
 }
 
-// First step is the authentication of the client
+//wyswietlenie komunikatu o prawidlowym lub blednym logowaniu
+
 app.use(authentication)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Server setup
+//uwierzytelnienie klienta
+
 app.listen((3000), () => {
 	console.log("Server is Running");
 })
+
+//okreslenie portu na ktorym dostepne bedzie uwierzytelnianie
